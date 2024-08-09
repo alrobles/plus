@@ -65,7 +65,7 @@ plus <- function(x = x, y = y, sample_use_time = 30, learning_rate = 1, qq = 0.1
     prob_choosen[which(prob_choosen<=0)] <- 0
 
     #stop criteria 1: if 90% of prob_choosen <= 0.01 stop
-    if(sum( prob_choosen <= 0.01) > (0.9 * length(prob_choosen))){
+    if(sum(prob_choosen <= 0.01) > (0.9 * length(prob_choosen))){
       break
     }
 
@@ -90,7 +90,8 @@ plus <- function(x = x, y = y, sample_use_time = 30, learning_rate = 1, qq = 0.1
     predicted_coefficients = pred.coef1,
     call = this.call
   )
+  plus_model <- validate_plus(plus_model)
 
-  return(list(pred.y = pred.y, cutoff=cutoff,pred.coef1=pred.coef1))
+  return(plus_model)
 
 }
