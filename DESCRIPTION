@@ -1,0 +1,19 @@
+Package: plus
+Title: Positive and unlabeled Learning from Unbalanced cases and Sparse structures
+Version: 0.0.1
+Authors@R: 
+    person("Angel", "Robles", , "a.l.robles.fernandez@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-4674-4270"))
+Description: This is an implementation of PLUS algorithm (Original: <doi:10.1371/journal.pcbi.1009956>).
+    It is also contains helper functions to run plus models for text analysis.
+License: GPL (>= 3)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Depends: 
+    R (>= 2.10)
+LazyData: true
+Imports: 
+    glmnet,
+    Matrix,
+    stats
