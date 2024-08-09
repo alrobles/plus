@@ -1,0 +1,14 @@
+asses1 <- assess_plus(fit, newx = x_test, newy = y_test)
+asses2 <- glmnet::assess.glmnet(fit$plus, newx = x_test, newy = y_test, )
+
+asses1$class
+asses2$class
+
+asses1$auc
+asses2$auc
+  
+asses1$mse
+asses2$mae
+
+asses1$mae
+asses2$mae

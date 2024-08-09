@@ -4,7 +4,7 @@
 #' \code{lambda} for a fit.
 #' @aliases predict.plus
 #' @param object Fitted \code{"pluse"} object.
-#' @param \dots additional print arguments
+#' @param \dots additional predict arguments
 #' @param newx Matrix of new values for \code{x} at which predictions are to be
 #' made. Must be a matrix; can be sparse as in \code{Matrix} package.
 #' @param s Value(s) of the penalty parameter \code{lambda} at which
@@ -30,8 +30,8 @@
 #' y_test  <- ifelse(rnorm(350) > 0, 1, 0)
 #' fit <- plus(x_train, y_train)
 #' predict(fit, newx = x_test)
-predict.plus <- function(object, ..., newx, s = "lambda.min", type = 'response'){
-  if(is.numeric(s))lambda=s
+predict.plus <- function(object, ..., newx = NULL, s = "lambda.min", type = 'response'){
+  if(is.numeric(s))lambda = s
   else
     if(is.character(s)){
       s = match.arg(s)
@@ -39,5 +39,16 @@ predict.plus <- function(object, ..., newx, s = "lambda.min", type = 'response')
       names(lambda)=s
     }
   else stop("Invalid form for s")
-  predict(object$plus$glmnet.fit, newx, s = lambda, type = type)
+
+  if(is.null(newx)){
+    prob <- object$pred_y
+  } else{
+    prob <- predict(object$plus$glmnet.fit, newx, s = lambda, type = type)
+  }
+
+  if(type == 'response'){
+    return(prob)
+  } else if(type == 'class'){
+    return(as.numeric(prob > object$cutoff))
+  }
 }

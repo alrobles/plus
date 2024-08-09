@@ -7,12 +7,12 @@ This function makes predictions from plus object. Is in essence a cross-validate
 optimized with the plus algorithm. It use the optimal value chosen for
 \code{lambda} for a fit.}
 \usage{
-\method{predict}{plus}(object, ..., newx, s = "lambda.min", type = "response")
+\method{predict}{plus}(object, ..., newx = NULL, s = "lambda.min", type = "response")
 }
 \arguments{
 \item{object}{Fitted \code{"pluse"} object.}
 
-\item{\dots}{additional print arguments}
+\item{\dots}{additional predict arguments}
 
 \item{newx}{Matrix of new values for \code{x} at which predictions are to be
 made. Must be a matrix; can be sparse as in \code{Matrix} package.}

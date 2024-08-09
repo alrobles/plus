@@ -20,12 +20,12 @@ plus <- function(x = x, y = y, sample_use_time = 30, learning_rate = 1, qq = 0.1
 
   N <- nrow(x)
   train.X <- x
-  Label <- y
+  label <- y
   pred.y0 <- y
   valid.id <- which(pred.y0 == 1)
 
   delta.p <-  array(Inf, N)
-  PP <-  NULL
+  pp <-  NULL
   invalid.id <- seq(N)[-valid.id]
   prob_choosen <- rep(1, length(invalid.id))
   names(prob_choosen) <- invalid.id
@@ -42,14 +42,14 @@ plus <- function(x = x, y = y, sample_use_time = 30, learning_rate = 1, qq = 0.1
     # train cv PLR model and do prediction
     fit.pi <-  glmnet::cv.glmnet(train.X[c(valid.id, sample.id),], y[c(valid.id, sample.id)], family = "binomial")
     pred.y <-  stats::predict(fit.pi, newx = train.X, s = "lambda.min", type = 'response')
-    #valid id in Label is true positive
+    #valid id in label is true positive
     cutoff <-  stats::quantile(pred.y[valid.id], qq)
 
     # rescale
     map.pred.y <-  pred.y - cutoff
     map.pred.y[map.pred.y > 0] <- map.pred.y[map.pred.y>0]/max(map.pred.y[map.pred.y>0])
     map.pred.y[map.pred.y < 0] <- map.pred.y[map.pred.y<0]/abs(min(map.pred.y[map.pred.y<0]))
-    pred.y <- 1/(1+exp(-10*(map.pred.y)))
+    pred.y <- 1/(1 + exp(-10*(map.pred.y)))
 
     # record something
     delta.p[sample.id] <- pred.y[sample.id] - pred.y0[sample.id]
@@ -58,9 +58,9 @@ plus <- function(x = x, y = y, sample_use_time = 30, learning_rate = 1, qq = 0.1
     pred.y0[sample.id] <- pred.y[sample.id]*learning_rate + (1-learning_rate)*pred.y0[sample.id]
 
     # shuffle:only change label of sample.id
-    Label.sample.id.old <- y[sample.id]
+    label.sample.id.old <- y[sample.id]
     y[sample.id] <- stats::rbinom(length(sample.id), 1, pred.y0[sample.id])
-    Label.sample.id.new <- y[sample.id]
+    label.sample.id.new <- y[sample.id]
 
     prob_choosen[which(prob_choosen<=0)] <- 0
 
@@ -70,7 +70,7 @@ plus <- function(x = x, y = y, sample_use_time = 30, learning_rate = 1, qq = 0.1
     }
 
     #stop criteria 2: convergency
-    change_propor <- c(change_propor,sum(Label.sample.id.old==Label.sample.id.new)/length(sample.id))
+    change_propor <- c(change_propor,sum(label.sample.id.old==label.sample.id.new)/length(sample.id))
     if(mean(change_propor[(i+1):(i+5)]) > 0.9)
     {
       break

@@ -6,13 +6,13 @@
 #' @param \dots additional print arguments
 #' @return information about the plus model
 #' @keywords models regression
+#' @method print plus
+#' @export
 #' @examples
 #' x <- matrix(rnorm(1000 * 20), 1000, 20)
 #' y <- ifelse(rnorm(1000) > 0, 1, 0)
 #' fit <- plus(x, y)
 #' print(fit)
-#' @method print plus
-#' @export
 print.plus <-
   function (x, digits = max(3, getOption("digits") - 3), ...)
   {
@@ -29,7 +29,5 @@ print.plus <-
     mat = data.frame(mat, check.names = FALSE)
     class(mat) = c("anova", class(mat))
     print(mat, digits = digits)
-
-
 
   }

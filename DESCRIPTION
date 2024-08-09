@@ -16,4 +16,5 @@ LazyData: true
 Imports: 
     glmnet,
     Matrix,
-    stats
+    stats,
+    survival

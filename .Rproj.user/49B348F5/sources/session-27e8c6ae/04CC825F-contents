@@ -2,7 +2,7 @@
 
 S3method(predict,plus)
 S3method(print,plus)
-export(assess_plus)
+export(assess.plus)
 export(auc)
 export(auc_matrix)
 export(new_plus)

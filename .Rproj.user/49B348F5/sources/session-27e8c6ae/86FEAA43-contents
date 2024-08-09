@@ -1,0 +1,52 @@
+assess.glmnet <- function(object, newx=NULL, newy, weights = NULL,
+                       family=c("gaussian","binomial","poisson","multinomial","cox","mgaussian"),
+                       ...){
+  ### object must be either a glmnet or cv.glmnet object, or else a matrix/vector of predictions of a glmnet model  (not on the mean scale, but natural parameter scale)
+  
+  ### It must either be a matrix or an array. The last dimension can be 1.
+  
+  oclass = grep("glmnet",class(object))
+  if(length(oclass)){# either a glmnet or cv.glmnet
+    predmat = predict(object,newx=newx,...)
+    fam = family(object)
+  }
+  else{
+    if(is.character(family))fam = match.arg(family)
+    else {
+      if(is.function(family))family=family()
+      if(!inherits(family,"family"))
+        stop("Invalid family argument; must be either character, function or family object")
+      fam=family
+    }
+    
+    predmat = object
+    if(is.vector(predmat))predmat=as.matrix(predmat)
+  }
+  
+  famtype = fam
+  attr(predmat,"family") = fam
+  if(inherits(fam,"family"))famtype="GLM"
+  type.measures = glmnet.measures(famtype)
+  #"deviance" "class"    "auc"      "mse"      "mae"  
+  y = drop(newy)
+  dimy=dim(y)
+  nrowy=ifelse(is.null(dimy),length(y),dimy[1])
+  
+  if (is.null(weights))
+    weights = rep(1, nrowy)
+  
+  subclass=switch(famtype,gaussian="elnet",binomial="lognet",poisson="fishnet",multinomial="multnet",
+                  cox="coxnet",mgaussian="mrelnet",GLM="glmnetfit")
+  fun = paste("cv", subclass, sep = ".")
+  if(subclass=="coxnet")fun="assess.coxnet"
+  outlist=as.list(type.measures)
+  names(outlist)=type.measures
+  for(type.measure in type.measures){
+    type.measure=cvtype(type.measure,subclass)
+    teststuff = do.call(fun, list(predmat,y,type.measure,weights,foldid=rep(1,nrowy),grouped=FALSE))
+    out=drop(with(teststuff, apply(cvraw, 2, weighted.mean, w = weights, na.rm = TRUE)))
+    attr(out,"measure")=names(type.measure)
+    outlist[[type.measure]]=out
+  }
+  outlist
+}
