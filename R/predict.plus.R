@@ -2,7 +2,6 @@
 #' This function makes predictions from plus object. Is in essence a cross-validated glmnet model,
 #'  optimized with the plus algorithm. It use the optimal value chosen for
 #' \code{lambda} for a fit.
-#' @aliases predict.plus
 #' @param object Fitted \code{"pluse"} object.
 #' @param \dots additional predict arguments
 #' @param newx Matrix of new values for \code{x} at which predictions are to be
@@ -22,6 +21,7 @@
 #' @return a vector of predicted probabilities
 #' @importFrom stats predict
 #' @method predict plus
+#' @aliases predict.plus
 #' @export
 #' @examples
 #' x_train <- matrix(rnorm(650 * 20), 650, 20)
