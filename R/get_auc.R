@@ -35,7 +35,7 @@ get_auc.plus <- function(object, newx = NULL, newy =NULL, weights = NULL, ...){
   if(is.null(newy)){
     stop("Provide newy data")
   }
-  p_response <- plus:::predict.plus(object, newx = newx, type = "response")
+  p_response <- predict(object, newx = newx, type = "response")
   names(p_response) <- "auc"
   return(auc(newy, p_response, w = weights))
 }
