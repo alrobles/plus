@@ -43,7 +43,7 @@ predict.plus <- function(object, ..., newx = NULL, s = "lambda.min", type = 'res
   if(is.null(newx)){
     prob <- object$pred_y
   } else{
-    prob <- predict(object$plus$glmnet.fit, newx, s = lambda, type = type)
+    prob <- predict(object$plus$glmnet.fit, newx, s = lambda, type = "response")
   }
 
   if(type == 'response'){
