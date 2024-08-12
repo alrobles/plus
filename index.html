@@ -47,6 +47,12 @@
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header"><h1 id="plus">plus<a class="anchor" aria-label="anchor" href="#plus"></a>
 </h1></div>
+<!--        _            -->
+<!--  _ __ | |_   _ ___  -->
+<!-- | '_ \| | | | / __| -->
+<!-- | |_) | | |_| \__ \ -->
+<!-- | .__/|_|\__,_|___/ -->
+<!-- |_|                 -->
 <!-- badges: start -->
 <!-- badges: end -->
 <p>Positive and unlabeled Learning from Unbalanced cases and Sparse structures (PLUS)</p>
@@ -70,9 +76,9 @@
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Measure: Binomial Deviance </span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;       Lambda Index Measure      SE Nonzero</span></span>
-<span><span class="co">#&gt; min 0.005152    37  0.2948 0.08232      15</span></span>
-<span><span class="co">#&gt; 1se 0.014335    26  0.3687 0.07902      11</span></span></code></pre></div>
+<span><span class="co">#&gt;      Lambda Index Measure      SE Nonzero</span></span>
+<span><span class="co">#&gt; min 0.00777    35  0.3383 0.10399      17</span></span>
+<span><span class="co">#&gt; 1se 0.04147    17  0.4411 0.06799       8</span></span></code></pre></div>
 <p>You can predict new data:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">binexample</span><span class="op">)</span></span>
@@ -86,41 +92,41 @@
 <span><span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/plus.html">plus</a></span><span class="op">(</span><span class="va">x_train</span>, <span class="va">y_train</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">fit</span>, newx <span class="op">=</span> <span class="va">x_test</span><span class="op">)</span></span>
 <span><span class="co">#&gt;       lambda.min</span></span>
-<span><span class="co">#&gt;  [1,]  0.9983758</span></span>
-<span><span class="co">#&gt;  [2,]  0.9825414</span></span>
-<span><span class="co">#&gt;  [3,]  0.9629690</span></span>
-<span><span class="co">#&gt;  [4,]  0.9304139</span></span>
-<span><span class="co">#&gt;  [5,]  0.9991706</span></span>
-<span><span class="co">#&gt;  [6,]  0.9831281</span></span>
-<span><span class="co">#&gt;  [7,]  0.9969993</span></span>
-<span><span class="co">#&gt;  [8,]  0.9978295</span></span>
-<span><span class="co">#&gt;  [9,]  0.9875074</span></span>
-<span><span class="co">#&gt; [10,]  0.9968640</span></span>
-<span><span class="co">#&gt; [11,]  0.9727998</span></span>
-<span><span class="co">#&gt; [12,]  0.9855236</span></span>
-<span><span class="co">#&gt; [13,]  0.9949839</span></span>
-<span><span class="co">#&gt; [14,]  0.9836214</span></span>
-<span><span class="co">#&gt; [15,]  0.9626422</span></span></code></pre></div>
+<span><span class="co">#&gt;  [1,]  0.9099319</span></span>
+<span><span class="co">#&gt;  [2,]  0.9988322</span></span>
+<span><span class="co">#&gt;  [3,]  0.9212976</span></span>
+<span><span class="co">#&gt;  [4,]  0.3999964</span></span>
+<span><span class="co">#&gt;  [5,]  0.3390931</span></span>
+<span><span class="co">#&gt;  [6,]  0.7253012</span></span>
+<span><span class="co">#&gt;  [7,]  0.9839539</span></span>
+<span><span class="co">#&gt;  [8,]  0.7999568</span></span>
+<span><span class="co">#&gt;  [9,]  0.5424189</span></span>
+<span><span class="co">#&gt; [10,]  0.9999993</span></span>
+<span><span class="co">#&gt; [11,]  0.9939600</span></span>
+<span><span class="co">#&gt; [12,]  0.9996293</span></span>
+<span><span class="co">#&gt; [13,]  0.9805778</span></span>
+<span><span class="co">#&gt; [14,]  0.9982364</span></span>
+<span><span class="co">#&gt; [15,]  0.8101654</span></span></code></pre></div>
 <p>Additionally you can get evaluation performance metrics for the plus models</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co">#&gt; [1] 0.36</span></span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co">#&gt; [1] 0.4044118</span></span>
 <span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">#&gt; $deviance</span></span>
 <span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt; lambda.min </span></span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">#&gt;   1.473088 </span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">#&gt;   1.280583 </span></span>
 <span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co">#&gt; $class</span></span>
 <span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">#&gt; lambda.min </span></span>
-<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#&gt;        0.4 </span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#&gt;       0.32 </span></span>
 <span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">#&gt; $auc</span></span>
-<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co">#&gt; [1] 0.36</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co">#&gt; [1] 0.4044118</span></span>
 <span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="co">#&gt; $mse</span></span>
 <span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="co">#&gt; lambda.min </span></span>
-<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="co">#&gt;  0.5363815 </span></span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="co">#&gt;  0.4468466 </span></span>
 <span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a><span class="co">#&gt; $mae</span></span>
 <span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a><span class="co">#&gt; lambda.min </span></span>
-<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a><span class="co">#&gt;  0.9601982</span></span></code></pre></div>
+<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a><span class="co">#&gt;  0.8697495</span></span></code></pre></div>
 <p>The plus algorithm can be applied in different datasets</p>
 </div>
 </div>
