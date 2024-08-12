@@ -49,7 +49,7 @@ You can predict new data:
 data(binexample)
 x = binexample$x
 y = binexample$y
-train <- sample(seq(length(y)), 50, replace = FALSE)
+train <- sample(seq(length(y)), 85, replace = FALSE)
 x_train <- x[train, ]
 x_test  <- x[-train, ]
 y_train <- y[train]
@@ -65,18 +65,19 @@ Additionally you can get evaluation performance metrics for the plus models
 data(binexample)
 x = binexample$x
 y = binexample$y
-train <- sample(seq(length(y)), 50, replace = FALSE)
+train <- sample(seq(length(y)), 75, replace = FALSE)
 x_train <- x[train, ]
 x_test  <- x[-train, ]
 y_train <- y[train]
 y_test  <- y[-train]
 fit <- plus(x_train, y_train)
 
+#Get the AUC
 get_auc(fit, x_test, y_test)
 
 
 #get different performance metrics
-assess_plus(fit, newx = x_test, newy = y_test)
+assess(fit, newx = x_test, newy = y_test)
 ```
 
 The plus algorithm can be applied in different datasets

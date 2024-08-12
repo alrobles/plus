@@ -33,399 +33,448 @@ data(binexample)
 x = binexample$x
 y = binexample$y
 plus(x, y)
-#> Warning in max(map.pred.y[map.pred.y > 0]): no non-missing arguments to max;
-#> returning -Inf
-#> Warning in min(map.pred.y[map.pred.y < 0]): no non-missing arguments to min;
-#> returning Inf
 #> 
 #> Call:  glmnet::cv.glmnet(x = train.X, y = y, family = "binomial") 
 #> 
 #> Measure: Binomial Deviance 
 #> 
-#>       Lambda Index Measure      SE Nonzero
-#> min 0.005352    29  0.2223 0.02246       2
-#> 1se 0.023714    13  0.2435 0.02458       1
+#>      Lambda Index Measure      SE Nonzero
+#> min 0.00692    36  0.5564 0.14560      20
+#> 1se 0.04885    15  0.6982 0.07907       6
 ```
 
 You can predict new data:
 
 ``` r
-x_train <- matrix(rnorm(650 * 20), 650, 20)
-x_test  <- matrix(rnorm(350 * 20), 350, 20)
-y_train <- ifelse(rnorm(650) > 0, 1, 0)
-y_test  <- ifelse(rnorm(350) > 0, 1, 0)
+data(binexample)
+x = binexample$x
+y = binexample$y
+train <- sample(seq(length(y)), 85, replace = FALSE)
+x_train <- x[train, ]
+x_test  <- x[-train, ]
+y_train <- y[train]
+y_test  <- y[-train]
 fit <- plus(x_train, y_train)
-#> Warning in max(map.pred.y[map.pred.y > 0]): no non-missing arguments to max;
-#> returning -Inf
-#> Warning in min(map.pred.y[map.pred.y < 0]): no non-missing arguments to min;
-#> returning Inf
-#> Warning in max(map.pred.y[map.pred.y > 0]): no non-missing arguments to max;
-#> returning -Inf
-#> Warning in min(map.pred.y[map.pred.y < 0]): no non-missing arguments to min;
-#> returning Inf
-#> Warning in max(map.pred.y[map.pred.y > 0]): no non-missing arguments to max;
-#> returning -Inf
-#> Warning in min(map.pred.y[map.pred.y < 0]): no non-missing arguments to min;
-#> returning Inf
-#> Warning in max(map.pred.y[map.pred.y > 0]): no non-missing arguments to max;
-#> returning -Inf
-#> Warning in min(map.pred.y[map.pred.y < 0]): no non-missing arguments to min;
-#> returning Inf
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+#> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+#> multinomial or binomial class has fewer than 8 observations; dangerous ground
 predict(fit, newx = x_test)
-#>        lambda.min
-#>   [1,] 0.95759544
-#>   [2,] 0.99998886
-#>   [3,] 0.98674499
-#>   [4,] 0.99979375
-#>   [5,] 0.99962002
-#>   [6,] 0.99876414
-#>   [7,] 0.01578160
-#>   [8,] 0.99543732
-#>   [9,] 0.97779354
-#>  [10,] 0.41087440
-#>  [11,] 0.99895965
-#>  [12,] 0.99081869
-#>  [13,] 0.99713514
-#>  [14,] 0.99959671
-#>  [15,] 0.99955885
-#>  [16,] 0.99365814
-#>  [17,] 0.99995413
-#>  [18,] 0.99531443
-#>  [19,] 0.99308265
-#>  [20,] 0.99940626
-#>  [21,] 0.99969663
-#>  [22,] 0.01393504
-#>  [23,] 0.97527634
-#>  [24,] 0.79560275
-#>  [25,] 0.99955241
-#>  [26,] 0.99999996
-#>  [27,] 0.99921616
-#>  [28,] 0.67876883
-#>  [29,] 0.99979503
-#>  [30,] 0.99998367
-#>  [31,] 0.99819121
-#>  [32,] 0.78293167
-#>  [33,] 0.99860508
-#>  [34,] 0.99831825
-#>  [35,] 0.78462215
-#>  [36,] 0.99958563
-#>  [37,] 0.99528600
-#>  [38,] 0.37602439
-#>  [39,] 0.99999182
-#>  [40,] 0.99961021
-#>  [41,] 0.99998444
-#>  [42,] 0.28181360
-#>  [43,] 0.99996953
-#>  [44,] 0.99997926
-#>  [45,] 0.99978979
-#>  [46,] 0.99904111
-#>  [47,] 0.53863933
-#>  [48,] 0.99872865
-#>  [49,] 0.98061525
-#>  [50,] 0.99998970
-#>  [51,] 0.98946483
-#>  [52,] 0.99978227
-#>  [53,] 0.17762392
-#>  [54,] 0.88092889
-#>  [55,] 0.45009157
-#>  [56,] 0.92073729
-#>  [57,] 0.99965548
-#>  [58,] 0.99990122
-#>  [59,] 0.93590441
-#>  [60,] 0.99999443
-#>  [61,] 0.37912710
-#>  [62,] 0.99999411
-#>  [63,] 0.99993690
-#>  [64,] 0.97787700
-#>  [65,] 0.97845185
-#>  [66,] 0.99982876
-#>  [67,] 0.64524517
-#>  [68,] 0.99394600
-#>  [69,] 0.62396777
-#>  [70,] 0.99999928
-#>  [71,] 0.99998898
-#>  [72,] 0.99954536
-#>  [73,] 0.13542945
-#>  [74,] 0.97897135
-#>  [75,] 0.99999645
-#>  [76,] 0.96404634
-#>  [77,] 0.99997369
-#>  [78,] 0.98932491
-#>  [79,] 0.99985663
-#>  [80,] 0.99875249
-#>  [81,] 0.99313579
-#>  [82,] 0.99259958
-#>  [83,] 0.99562100
-#>  [84,] 0.99973021
-#>  [85,] 0.95831456
-#>  [86,] 0.99730960
-#>  [87,] 0.99225361
-#>  [88,] 0.99977312
-#>  [89,] 0.99306792
-#>  [90,] 0.34689224
-#>  [91,] 0.97983215
-#>  [92,] 0.20707662
-#>  [93,] 0.99995676
-#>  [94,] 0.99996095
-#>  [95,] 0.91232728
-#>  [96,] 0.72153952
-#>  [97,] 0.99913750
-#>  [98,] 0.99999305
-#>  [99,] 0.99893449
-#> [100,] 0.99999610
-#> [101,] 0.99995385
-#> [102,] 0.99958382
-#> [103,] 0.99902026
-#> [104,] 0.99999932
-#> [105,] 0.77041841
-#> [106,] 0.94548526
-#> [107,] 0.94391082
-#> [108,] 0.99967534
-#> [109,] 0.75094186
-#> [110,] 0.98649745
-#> [111,] 0.99363109
-#> [112,] 0.99998325
-#> [113,] 0.99997357
-#> [114,] 0.78623025
-#> [115,] 0.99013919
-#> [116,] 0.95795418
-#> [117,] 0.99999864
-#> [118,] 0.99960227
-#> [119,] 0.99998754
-#> [120,] 0.97952944
-#> [121,] 0.99999348
-#> [122,] 0.99984088
-#> [123,] 0.99999995
-#> [124,] 0.99999957
-#> [125,] 0.99757496
-#> [126,] 0.99961265
-#> [127,] 0.99490514
-#> [128,] 0.98601320
-#> [129,] 0.86945035
-#> [130,] 0.05525786
-#> [131,] 0.71184388
-#> [132,] 0.90868252
-#> [133,] 0.99164113
-#> [134,] 0.99287136
-#> [135,] 0.99435430
-#> [136,] 0.99806804
-#> [137,] 0.77844731
-#> [138,] 0.99990401
-#> [139,] 0.99999907
-#> [140,] 0.99788031
-#> [141,] 0.96714294
-#> [142,] 0.99152332
-#> [143,] 0.98209130
-#> [144,] 0.99999830
-#> [145,] 0.99845365
-#> [146,] 0.40616211
-#> [147,] 0.99961291
-#> [148,] 0.99901927
-#> [149,] 0.99945329
-#> [150,] 0.99999651
-#> [151,] 0.94858714
-#> [152,] 0.97979071
-#> [153,] 0.95989795
-#> [154,] 0.99919539
-#> [155,] 0.99914269
-#> [156,] 0.99999974
-#> [157,] 0.99999959
-#> [158,] 0.99999414
-#> [159,] 0.99995875
-#> [160,] 0.96204523
-#> [161,] 0.83668314
-#> [162,] 0.99735182
-#> [163,] 0.58848832
-#> [164,] 0.99964995
-#> [165,] 0.99515999
-#> [166,] 0.29914485
-#> [167,] 0.99999962
-#> [168,] 0.99358816
-#> [169,] 0.38200750
-#> [170,] 0.98995308
-#> [171,] 0.99872025
-#> [172,] 0.94865961
-#> [173,] 0.99745131
-#> [174,] 0.99919514
-#> [175,] 0.99973514
-#> [176,] 0.98280072
-#> [177,] 0.99903183
-#> [178,] 0.90554901
-#> [179,] 0.93977208
-#> [180,] 0.46140845
-#> [181,] 0.91152813
-#> [182,] 0.99902935
-#> [183,] 0.99988997
-#> [184,] 0.99985480
-#> [185,] 0.84797711
-#> [186,] 0.99998920
-#> [187,] 1.00000000
-#> [188,] 0.71042249
-#> [189,] 0.99999665
-#> [190,] 0.99915344
-#> [191,] 0.99997019
-#> [192,] 0.99987119
-#> [193,] 0.99993948
-#> [194,] 0.99974422
-#> [195,] 0.99002836
-#> [196,] 0.94402643
-#> [197,] 0.99751806
-#> [198,] 0.45666529
-#> [199,] 0.85569021
-#> [200,] 0.99999737
-#> [201,] 0.99992690
-#> [202,] 0.99997147
-#> [203,] 0.81022026
-#> [204,] 0.99935221
-#> [205,] 0.99998678
-#> [206,] 0.99664745
-#> [207,] 0.99999998
-#> [208,] 0.99997419
-#> [209,] 0.99978401
-#> [210,] 0.99769522
-#> [211,] 0.99795859
-#> [212,] 0.99392560
-#> [213,] 0.99653216
-#> [214,] 0.99768450
-#> [215,] 0.93212215
-#> [216,] 0.99990132
-#> [217,] 0.96318272
-#> [218,] 0.99928406
-#> [219,] 0.99994377
-#> [220,] 0.99701841
-#> [221,] 0.99970532
-#> [222,] 0.99998685
-#> [223,] 0.99768758
-#> [224,] 0.99988679
-#> [225,] 0.57553912
-#> [226,] 0.99660189
-#> [227,] 0.11919487
-#> [228,] 0.99485813
-#> [229,] 0.99999646
-#> [230,] 0.99999137
-#> [231,] 0.94406825
-#> [232,] 0.99997764
-#> [233,] 0.99999995
-#> [234,] 0.99914775
-#> [235,] 0.99999964
-#> [236,] 0.99956201
-#> [237,] 0.96420422
-#> [238,] 0.28598452
-#> [239,] 0.99862042
-#> [240,] 0.99999741
-#> [241,] 0.04601319
-#> [242,] 0.98464503
-#> [243,] 0.99999972
-#> [244,] 0.99995791
-#> [245,] 0.99974876
-#> [246,] 0.99708956
-#> [247,] 0.99997886
-#> [248,] 0.99998904
-#> [249,] 0.99458616
-#> [250,] 0.99772565
-#> [251,] 0.99999598
-#> [252,] 0.81971365
-#> [253,] 0.97588412
-#> [254,] 0.97025818
-#> [255,] 0.99998489
-#> [256,] 0.99899055
-#> [257,] 0.16168186
-#> [258,] 0.98505208
-#> [259,] 0.99903096
-#> [260,] 0.99995719
-#> [261,] 0.99065145
-#> [262,] 0.99999092
-#> [263,] 0.81042025
-#> [264,] 0.99998737
-#> [265,] 0.99964363
-#> [266,] 0.59512435
-#> [267,] 0.99999968
-#> [268,] 0.98913190
-#> [269,] 0.96241844
-#> [270,] 0.99209854
-#> [271,] 0.07136771
-#> [272,] 0.97750498
-#> [273,] 0.98622310
-#> [274,] 0.02791461
-#> [275,] 0.99998802
-#> [276,] 0.99999701
-#> [277,] 0.99994007
-#> [278,] 0.99944094
-#> [279,] 0.99970169
-#> [280,] 0.99999019
-#> [281,] 0.99999945
-#> [282,] 0.99302159
-#> [283,] 0.99999994
-#> [284,] 0.98317457
-#> [285,] 0.99700952
-#> [286,] 0.97284890
-#> [287,] 0.99998513
-#> [288,] 0.99994833
-#> [289,] 0.99961319
-#> [290,] 0.99964556
-#> [291,] 0.99992773
-#> [292,] 0.99667723
-#> [293,] 0.99991845
-#> [294,] 0.99937095
-#> [295,] 0.99975111
-#> [296,] 0.99984760
-#> [297,] 0.99948271
-#> [298,] 0.99981654
-#> [299,] 0.96415853
-#> [300,] 0.99999107
-#> [301,] 0.99947118
-#> [302,] 0.99930325
-#> [303,] 0.99654954
-#> [304,] 0.99999613
-#> [305,] 0.99857079
-#> [306,] 0.99480918
-#> [307,] 0.99984980
-#> [308,] 0.85995197
-#> [309,] 0.99818697
-#> [310,] 0.99974811
-#> [311,] 0.99998907
-#> [312,] 0.01574452
-#> [313,] 0.99996907
-#> [314,] 0.97726735
-#> [315,] 0.99954008
-#> [316,] 0.99995737
-#> [317,] 0.02695901
-#> [318,] 0.99990445
-#> [319,] 0.99773032
-#> [320,] 0.36389066
-#> [321,] 0.99880576
-#> [322,] 0.99529846
-#> [323,] 0.99889347
-#> [324,] 0.99996876
-#> [325,] 0.99999630
-#> [326,] 0.99888056
-#> [327,] 0.99956960
-#> [328,] 0.99669199
-#> [329,] 0.99800713
-#> [330,] 0.75285532
-#> [331,] 0.99996302
-#> [332,] 0.59235600
-#> [333,] 0.99153649
-#> [334,] 0.95273253
-#> [335,] 0.99999506
-#> [336,] 0.87003915
-#> [337,] 0.99999912
-#> [338,] 0.99937674
-#> [339,] 0.98965567
-#> [340,] 0.99998661
-#> [341,] 0.99988933
-#> [342,] 0.99993062
-#> [343,] 0.90105827
-#> [344,] 0.58862420
-#> [345,] 0.95458783
-#> [346,] 0.79664655
-#> [347,] 0.97953763
-#> [348,] 0.99809209
-#> [349,] 0.99953232
-#> [350,] 0.92268566
+#>       lambda.min
+#>  [1,]  0.8199882
+#>  [2,]  0.9896921
+#>  [3,]  0.9357935
+#>  [4,]  0.9552818
+#>  [5,]  0.8592861
+#>  [6,]  0.9734173
+#>  [7,]  0.9221861
+#>  [8,]  0.9481288
+#>  [9,]  0.9724365
+#> [10,]  0.9940004
+#> [11,]  0.9903649
+#> [12,]  0.8809392
+#> [13,]  0.9953123
+#> [14,]  0.8704460
+#> [15,]  0.9935770
 ```
 
 Additionally you can get evaluation performance metrics for the plus
 models
+
+    #> Warning in max(map.pred.y[map.pred.y > 0]): no non-missing arguments to max;
+    #> returning -Inf
+    #> Warning in min(map.pred.y[map.pred.y < 0]): no non-missing arguments to min;
+    #> returning Inf
+    #> Warning in max(map.pred.y[map.pred.y > 0]): no non-missing arguments to max;
+    #> returning -Inf
+    #> Warning in min(map.pred.y[map.pred.y < 0]): no non-missing arguments to min;
+    #> returning Inf
+    #> Warning in max(map.pred.y[map.pred.y > 0]): no non-missing arguments to max;
+    #> returning -Inf
+    #> Warning in min(map.pred.y[map.pred.y < 0]): no non-missing arguments to min;
+    #> returning Inf
+    #> Warning in max(map.pred.y[map.pred.y > 0]): no non-missing arguments to max;
+    #> returning -Inf
+    #> Warning in min(map.pred.y[map.pred.y < 0]): no non-missing arguments to min;
+    #> returning Inf
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+    #> Warning in max(map.pred.y[map.pred.y > 0]): no non-missing arguments to max;
+    #> returning -Inf
+    #> Warning in min(map.pred.y[map.pred.y < 0]): no non-missing arguments to min;
+    #> returning Inf
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+    #> Warning in max(map.pred.y[map.pred.y > 0]): no non-missing arguments to max;
+    #> returning -Inf
+    #> Warning in min(map.pred.y[map.pred.y < 0]): no non-missing arguments to min;
+    #> returning Inf
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+    #> Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+    #> multinomial or binomial class has fewer than 8 observations; dangerous ground
+    #> [1] 0.6153846
+    #> $deviance
+    #> lambda.min 
+    #>   1.529837 
+    #> 
+    #> $class
+    #> lambda.min 
+    #>       0.48 
+    #> 
+    #> $auc
+    #> [1] 0.6153846
+    #> 
+    #> $mse
+    #> lambda.min 
+    #>  0.5650617 
+    #> 
+    #> $mae
+    #> lambda.min 
+    #>  0.9765319
 
 The plus algorithm can be applied in different datasets
