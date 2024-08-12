@@ -35,7 +35,7 @@ The goal of plus is implement the Positive and unlabeled Learning from Unbalance
 
 The use of plus is very simple:
 
-```{r example}
+```{r example, warning=FALSE}
 library(plus)
 data(binexample)
 x = binexample$x
