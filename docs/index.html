@@ -6,21 +6,20 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Positive and unlabeled Learning from Unbalanced cases and Sparse structures • plus</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Positive and unlabeled Learning from Unbalanced cases and Sparse structures">
-<meta property="og:description" content="This is an implementation of PLUS algorithm (Original: &lt;doi:10.1371/journal.pcbi.1009956&gt;).
-    It is also contains helper functions to run plus models for text analysis.">
+<meta property="og:description" content="This is an implementation of PLUS algorithm (Original: &lt;doi:10.1371/journal.pcbi.1009956&gt;). It is also contains helper functions to run plus models for text analysis.">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
-    
+
 
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -52,7 +51,7 @@
 </div>
 <!--/.navbar -->
 
-      
+
 
       </header><div class="row">
   <div class="contents col-md-9">
@@ -61,22 +60,85 @@
 </h1></div>
 <!-- badges: start -->
 <!-- badges: end -->
-<p>The goal of plus is to …</p>
+<p>Positive and unlabeled Learning from Unbalanced cases and Sparse structures (PLUS)</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the development version of plus from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
+<p>You can install the development version of plus from <a href="https://github.com/alrobles/PLUS" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"alrobles/plus"</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level2">
-<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
-</h2>
-<p>This is a basic example which shows you how to solve a common problem:</p>
+<p>The goal of plus is implement the Positive and unlabeled Learning from Unbalanced cases and Sparse structures (PLUS) algorithm, originally published in: <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009956" class="external-link">PLoS</a> ## Example</p>
+<p>The use of plus is very simple:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">plus</span><span class="op">)</span></span>
-<span><span class="co">## basic example code</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">binexample</span><span class="op">)</span></span>
+<span><span class="va">x</span> <span class="op">=</span> <span class="va">binexample</span><span class="op">$</span><span class="va">x</span></span>
+<span><span class="va">y</span> <span class="op">=</span> <span class="va">binexample</span><span class="op">$</span><span class="va">y</span></span>
+<span><span class="fu"><a href="reference/plus.html">plus</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: from glmnet C++ code (error code -80); Convergence for 80th lambda</span></span>
+<span><span class="co">#&gt; value not reached after maxit=100000 iterations; solutions for larger lambdas</span></span>
+<span><span class="co">#&gt; returned</span></span>
+<span><span class="co">#&gt; Warning: from glmnet C++ code (error code -86); Convergence for 86th lambda</span></span>
+<span><span class="co">#&gt; value not reached after maxit=100000 iterations; solutions for larger lambdas</span></span>
+<span><span class="co">#&gt; returned</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Call:  glmnet::cv.glmnet(x = train.X, y = y, family = "binomial") </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Measure: Binomial Deviance </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;       Lambda Index Measure      SE Nonzero</span></span>
+<span><span class="co">#&gt; min 0.006853    37  0.3883 0.10025      19</span></span>
+<span><span class="co">#&gt; 1se 0.017374    27  0.4863 0.08725      15</span></span></code></pre></div>
+<p>You can predict new data:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">binexample</span><span class="op">)</span></span>
+<span><span class="va">x</span> <span class="op">=</span> <span class="va">binexample</span><span class="op">$</span><span class="va">x</span></span>
+<span><span class="va">y</span> <span class="op">=</span> <span class="va">binexample</span><span class="op">$</span><span class="va">y</span></span>
+<span><span class="va">train</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">)</span>, <span class="fl">85</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="va">x_train</span> <span class="op">&lt;-</span> <span class="va">x</span><span class="op">[</span><span class="va">train</span>, <span class="op">]</span></span>
+<span><span class="va">x_test</span>  <span class="op">&lt;-</span> <span class="va">x</span><span class="op">[</span><span class="op">-</span><span class="va">train</span>, <span class="op">]</span></span>
+<span><span class="va">y_train</span> <span class="op">&lt;-</span> <span class="va">y</span><span class="op">[</span><span class="va">train</span><span class="op">]</span></span>
+<span><span class="va">y_test</span>  <span class="op">&lt;-</span> <span class="va">y</span><span class="op">[</span><span class="op">-</span><span class="va">train</span><span class="op">]</span></span>
+<span><span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/plus.html">plus</a></span><span class="op">(</span><span class="va">x_train</span>, <span class="va">y_train</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">fit</span>, newx <span class="op">=</span> <span class="va">x_test</span><span class="op">)</span></span>
+<span><span class="co">#&gt;       lambda.min</span></span>
+<span><span class="co">#&gt;  [1,]  0.9399620</span></span>
+<span><span class="co">#&gt;  [2,]  0.2392404</span></span>
+<span><span class="co">#&gt;  [3,]  0.6045430</span></span>
+<span><span class="co">#&gt;  [4,]  0.9735024</span></span>
+<span><span class="co">#&gt;  [5,]  0.9836893</span></span>
+<span><span class="co">#&gt;  [6,]  0.9555901</span></span>
+<span><span class="co">#&gt;  [7,]  0.9677669</span></span>
+<span><span class="co">#&gt;  [8,]  0.8561529</span></span>
+<span><span class="co">#&gt;  [9,]  0.9037057</span></span>
+<span><span class="co">#&gt; [10,]  0.7302149</span></span>
+<span><span class="co">#&gt; [11,]  0.9976634</span></span>
+<span><span class="co">#&gt; [12,]  0.9600405</span></span>
+<span><span class="co">#&gt; [13,]  0.9678719</span></span>
+<span><span class="co">#&gt; [14,]  0.9649344</span></span>
+<span><span class="co">#&gt; [15,]  0.9151221</span></span></code></pre></div>
+<p>Additionally you can get evaluation performance metrics for the plus models</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co">#&gt; [1] 0.5384615</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">#&gt; $deviance</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt; lambda.min </span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">#&gt;   1.570621 </span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co">#&gt; $class</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">#&gt; lambda.min </span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#&gt;       0.52 </span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">#&gt; $auc</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co">#&gt; [1] 0.5384615</span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="co">#&gt; $mse</span></span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="co">#&gt; lambda.min </span></span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="co">#&gt;  0.5816832 </span></span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a><span class="co">#&gt; $mae</span></span>
+<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a><span class="co">#&gt; lambda.min </span></span>
+<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a><span class="co">#&gt;  0.9998962</span></span></code></pre></div>
+<p>The plus algorithm can be applied in different datasets</p>
 </div>
 </div>
   </div>
@@ -125,16 +187,16 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
 </div>
 
       </footer>
 </div>
 
-  
 
 
-  
+
+
 
   </body>
 </html>

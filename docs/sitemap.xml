@@ -1,66 +1,26 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>/reference/assess.html</loc>
-  </url>
-  <url>
-    <loc>/reference/auc.html</loc>
-  </url>
-  <url>
-    <loc>/reference/auc_matrix.html</loc>
-  </url>
-  <url>
-    <loc>/reference/cutoff_example.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fit_plus_example.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/lacs.html</loc>
-  </url>
-  <url>
-    <loc>/reference/lacsSample.html</loc>
-  </url>
-  <url>
-    <loc>/reference/new_plus.html</loc>
-  </url>
-  <url>
-    <loc>/reference/plus.html</loc>
-  </url>
-  <url>
-    <loc>/reference/plus_cv_lognet.html</loc>
-  </url>
-  <url>
-    <loc>/reference/plus_object_example.html</loc>
-  </url>
-  <url>
-    <loc>/reference/predict.plus.html</loc>
-  </url>
-  <url>
-    <loc>/reference/predicted_coefficients_example.html</loc>
-  </url>
-  <url>
-    <loc>/reference/predicted_y_example.html</loc>
-  </url>
-  <url>
-    <loc>/reference/print.plus.html</loc>
-  </url>
-  <url>
-    <loc>/reference/validate_plus.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/LICENSE.html</loc></url>
+<url><loc>/reference/assess.html</loc></url>
+<url><loc>/reference/auc.html</loc></url>
+<url><loc>/reference/auc_matrix.html</loc></url>
+<url><loc>/reference/binexample.html</loc></url>
+<url><loc>/reference/cutoff_example.html</loc></url>
+<url><loc>/reference/fit_plus_example.html</loc></url>
+<url><loc>/reference/get_auc.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/lacs.html</loc></url>
+<url><loc>/reference/lacsSample.html</loc></url>
+<url><loc>/reference/new_plus.html</loc></url>
+<url><loc>/reference/plus.html</loc></url>
+<url><loc>/reference/plus_cv_lognet.html</loc></url>
+<url><loc>/reference/plus_object_example.html</loc></url>
+<url><loc>/reference/predict.plus.html</loc></url>
+<url><loc>/reference/predicted_coefficients_example.html</loc></url>
+<url><loc>/reference/predicted_y_example.html</loc></url>
+<url><loc>/reference/print.plus.html</loc></url>
+<url><loc>/reference/validate_plus.html</loc></url>
 </urlset>
+
