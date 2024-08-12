@@ -45,7 +45,7 @@ plus(x, y)
 
 You can predict new data:
 
-```{r cars}
+```{r predict, warning=FALSE}
 data(binexample)
 x = binexample$x
 y = binexample$y
@@ -60,7 +60,7 @@ predict(fit, newx = x_test)
 
 Additionally you can get evaluation performance metrics for the plus models
 
-```{r roc, echo = FALSE}
+```{r roc, echo = FALSE, warning=FALSE}
 #only Area under ROC curve
 data(binexample)
 x = binexample$x
