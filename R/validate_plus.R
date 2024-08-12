@@ -19,6 +19,5 @@ validate_plus <- function(plus_object){
   stopifnot(is.matrix(values$pred_y))
   stopifnot(is.numeric(values$cutoff))
   stopifnot(class(values$predicted_coefficients) == "dgCMatrix")
-
   plus_object
 }

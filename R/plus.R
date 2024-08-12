@@ -10,8 +10,9 @@
 #' @export
 #'
 #' @examples
-#' x = matrix(rnorm(1000 * 5), 1000, 5)
-#' y = ifelse(rnorm(1000) > 0, 1, 0)
+#' data(binexample)
+#' x = binexample$x
+#' y = binexample$y
 #' plus(x, y)
 plus <- function(x = x, y = y, sample_use_time = 30, learning_rate = 1, qq = 0.1){
 

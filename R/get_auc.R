@@ -19,7 +19,7 @@ get_auc <- function(object, newx = NULL, newy = NULL, weights = NULL, ...) {
 #' data(binexample)
 #' x <- binexample$x
 #' y <- binexample$y
-#' train <- sample(seq(length(y)), 65, replace = FALSE)
+#' train <- sample(seq(length(y)), 50, replace = FALSE)
 #' x_train <- x[train, ]
 #' x_test  <- x[-train, ]
 #' y_train <- y[train]
