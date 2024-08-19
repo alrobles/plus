@@ -27,10 +27,14 @@ A list with performance metrics for plus models
 Assessment of performance metrics in plus models
 }
 \examples{
-x_train <- matrix(rnorm(650 * 20), 650, 20)
-x_test  <- matrix(rnorm(350 * 20), 350, 20)
-y_train <- ifelse(rnorm(650) > 0, 1, 0)
-y_test  <- ifelse(rnorm(350) > 0, 1, 0)
+#' data(binexample)
+x = binexample$x
+y = binexample$y
+s <- sample(seq(nrow(x)), 65, replace = FALSE)
+x_train <- x[s, ]
+x_test  <- x[-s, ]
+y_train <- y[s]
+y_test  <- y[-s]
 fit <- plus(x_train, y_train)
 assess(fit, newx = x_test, newy = y_test)
 }

@@ -32,7 +32,7 @@ the maximum probability. Type \code{"nonzero"} returns a list of the indices
 of the nonzero coefficients for each value of \code{s}.}
 }
 \value{
-a vector of predicted probabilities
+A vector of predicted probabilities or classes
 }
 \description{
 make predictions from a "plus" object.

@@ -18,11 +18,12 @@
 #' \code{s}. Type \code{"class"} produces the class label corresponding to
 #' the maximum probability. Type \code{"nonzero"} returns a list of the indices
 #' of the nonzero coefficients for each value of \code{s}.
-#' @return a vector of predicted probabilities
+#' @return A vector of predicted probabilities or classes
 #' @importFrom stats predict
 #' @method predict plus
 #' @aliases predict.plus
 #' @export
+#'
 #' @examples
 #' x_train <- matrix(rnorm(650 * 20), 650, 20)
 #' x_test  <- matrix(rnorm(350 * 20), 350, 20)

@@ -27,7 +27,7 @@ Assessment of auc metrics in plus models
 data(binexample)
 x <- binexample$x
 y <- binexample$y
-train <- sample(seq(length(y)), 65, replace = FALSE)
+train <- sample(seq(length(y)), 50, replace = FALSE)
 x_train <- x[train, ]
 x_test  <- x[-train, ]
 y_train <- y[train]

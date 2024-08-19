@@ -4,12 +4,21 @@
 \alias{plus}
 \title{plus model helper function}
 \usage{
-plus(x = x, y = y, sample_use_time = 30, learning_rate = 1, qq = 0.1)
+plus(
+  x = x,
+  y = y,
+  alpha = 1,
+  sample_use_time = 30,
+  learning_rate = 1,
+  qq = 0.1
+)
 }
 \arguments{
 \item{x}{A set of independent numeric variables.}
 
 \item{y}{A binary dependent variable}
+
+\item{alpha}{The elasticnet mixing parameter, with \eqn{0\le\alpha\le 1}. (See glmnet)}
 
 \item{sample_use_time}{Number of use time}
 
@@ -24,7 +33,8 @@ and object of the class plus
 plus model helper function
 }
 \examples{
-x = matrix(rnorm(1000 * 5), 1000, 5)
-y = ifelse(rnorm(1000) > 0, 1, 0)
+data(binexample)
+x = binexample$x
+y = binexample$y
 plus(x, y)
 }

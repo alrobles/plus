@@ -2,6 +2,7 @@
 #'
 #' @param x A set of independent numeric variables.
 #' @param y A binary dependent variable
+#' @param alpha The elastic net mixing parameter, with \eqn{0\le\alpha\le 1}. (See glmnet)
 #' @param sample_use_time Number of use time
 #' @param learning_rate learning rate
 #' @param qq quantile threshold
@@ -14,7 +15,7 @@
 #' x = binexample$x
 #' y = binexample$y
 #' plus(x, y)
-plus <- function(x = x, y = y, sample_use_time = 30, learning_rate = 1, qq = 0.1){
+plus <- function(x = x, y = y, alpha = 1, sample_use_time = 30, learning_rate = 1, qq = 0.1){
 
   #save the call for print method
   this.call <- match.call()
@@ -40,8 +41,17 @@ plus <- function(x = x, y = y, sample_use_time = 30, learning_rate = 1, qq = 0.1
     #Used_time controls how many time each sample are selected
     prob_choosen[as.character(sample.id)] <- prob_choosen[as.character(sample.id)] - (1/sample_use_time)
 
+    NFOLDS = 4
     # train cv PLR model and do prediction
-    fit.pi <-  glmnet::cv.glmnet(train.X[c(valid.id, sample.id),], y[c(valid.id, sample.id)], family = "binomial")
+    fit.pi <-  glmnet::cv.glmnet(x = train.X[c(valid.id, sample.id), ],
+                                 y[c(valid.id, sample.id)],
+                                 alpha = alpha,
+                                 type.measure = "auc",
+                                 nfolds = NFOLDS,
+                                 thresh = 1e-3,
+                                 maxit = 1e3,
+                                 family = "binomial")
+
     pred.y <-  stats::predict(fit.pi, newx = train.X, s = "lambda.min", type = 'response')
     #valid id in label is true positive
     cutoff <-  stats::quantile(pred.y[valid.id], qq)
