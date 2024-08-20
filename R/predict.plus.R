@@ -50,6 +50,6 @@ predict.plus <- function(object, ..., newx = NULL, s = "lambda.min", type = 'res
   if(type == 'response'){
     return(prob)
   } else if(type == 'class'){
-    return(as.numeric(prob > object$cutoff))
+    return(as.factor(prob > object$cutoff))
   }
 }

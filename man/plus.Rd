@@ -18,7 +18,7 @@ plus(
 
 \item{y}{A binary dependent variable}
 
-\item{alpha}{The elasticnet mixing parameter, with \eqn{0\le\alpha\le 1}. (See glmnet)}
+\item{alpha}{The elastic net mixing parameter, with \eqn{0\le\alpha\le 1}. (See glmnet)}
 
 \item{sample_use_time}{Number of use time}
 
