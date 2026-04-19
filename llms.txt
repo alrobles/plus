@@ -1,0 +1,176 @@
+# plus
+
+Positive and unlabeled Learning from Unbalanced cases and Sparse
+structures (PLUS)
+
+## Installation
+
+You can install the development version of plus from
+[GitHub](https://github.com/alrobles/PLUS) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("alrobles/plus")
+```
+
+The goal of plus is implement the Positive and unlabeled Learning from
+Unbalanced cases and Sparse structures (PLUS) algorithm, originally
+published in:
+[PLoS](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009956)
+\## Example
+
+The use of plus is very simple:
+
+``` r
+library(plus)
+data(binexample)
+x = binexample$x
+y = binexample$y
+plus(x, y)
+#> 
+#> Call:  glmnet::cv.glmnet(x = train.X, y = y, family = "binomial") 
+#> 
+#> Measure: Binomial Deviance 
+#> 
+#>      Lambda Index Measure      SE Nonzero
+#> min 0.00777    35  0.3383 0.10399      17
+#> 1se 0.04147    17  0.4411 0.06799       8
+```
+
+You can predict new data:
+
+``` r
+data(binexample)
+x = binexample$x
+y = binexample$y
+train <- sample(seq(length(y)), 85, replace = FALSE)
+x_train <- x[train, ]
+x_test  <- x[-train, ]
+y_train <- y[train]
+y_test  <- y[-train]
+fit <- plus(x_train, y_train)
+predict(fit, newx = x_test)
+#>       lambda.min
+#>  [1,]  0.9099319
+#>  [2,]  0.9988322
+#>  [3,]  0.9212976
+#>  [4,]  0.3999964
+#>  [5,]  0.3390931
+#>  [6,]  0.7253012
+#>  [7,]  0.9839539
+#>  [8,]  0.7999568
+#>  [9,]  0.5424189
+#> [10,]  0.9999993
+#> [11,]  0.9939600
+#> [12,]  0.9996293
+#> [13,]  0.9805778
+#> [14,]  0.9982364
+#> [15,]  0.8101654
+```
+
+Additionally you can get evaluation performance metrics for the plus
+models
+
+``` R
+#> [1] 0.4044118
+#> $deviance
+#> lambda.min 
+#>   1.280583 
+#> 
+#> $class
+#> lambda.min 
+#>       0.32 
+#> 
+#> $auc
+#> [1] 0.4044118
+#> 
+#> $mse
+#> lambda.min 
+#>  0.4468466 
+#> 
+#> $mae
+#> lambda.min 
+#>  0.8697495
+```
+
+The plus algorithm can be applied in different datasets
+
+# Package index
+
+## All functions
+
+- [`assess()`](https://alrobles.github.io/plus/reference/assess.md) :
+  Assessment of performance metrics in plus models
+
+- [`auc()`](https://alrobles.github.io/plus/reference/auc.md) : Gets the
+  Area under ROC curve usingthe concordance statistics
+
+- [`auc_matrix()`](https://alrobles.github.io/plus/reference/auc_matrix.md)
+  : AUC evaluation for matrix (data.frame) data
+
+- [`binexample`](https://alrobles.github.io/plus/reference/binexample.md)
+  : List with 100 random values for binary classfication It contains a
+  list with x and y values. x.has 100 instances and 30 features. y is a
+  vector of 100 binary (1 and 0) values. This dataset is for test plus
+  classification.
+
+- [`cutoff_example`](https://alrobles.github.io/plus/reference/cutoff_example.md)
+  : Example of cutoff threshold from plus model for use in the
+  consturctor function new_plus
+
+- [`fit_plus_example`](https://alrobles.github.io/plus/reference/fit_plus_example.md)
+  : Example of plus model for use in the consturctor function new_plus
+
+- [`get_auc()`](https://alrobles.github.io/plus/reference/get_auc.md) :
+  Assessment of auc metrics in plus models
+
+- [`get_predictions()`](https://alrobles.github.io/plus/reference/get_predictions.md)
+  : Get predictions to asses model performance from a fitted plus model.
+
+- [`lacs`](https://alrobles.github.io/plus/reference/lacs.md) : Data
+  frame with 5990 abstracts. Each abstract belongs to one of both
+  classes, positive and unknown. Abstracts from parasite class are from
+  ZOVER and GMPD database. Abstracs from unknown class are random
+  abstracts retrived from crossref.
+
+- [`lacsSample`](https://alrobles.github.io/plus/reference/lacsSample.md)
+  : Data frame with 600 abstracts. Each abstract belongs to one of both
+  classes, positive and unknown. Abstracts from parasite class are from
+  ZOVER and GMPD database. Abstracs from unknown class are random
+  abstracts retrived from crossref.
+
+- [`new_plus()`](https://alrobles.github.io/plus/reference/new_plus.md)
+  : Constructor function for the class plus A constructor for the plus
+  class
+
+- [`plus()`](https://alrobles.github.io/plus/reference/plus.md) : plus
+  model helper function
+
+- [`plus_cv_lognet()`](https://alrobles.github.io/plus/reference/plus_cv_lognet.md)
+  : Evaluation metric of plus classification
+
+- [`plus_object_example`](https://alrobles.github.io/plus/reference/plus_object_example.md)
+  : Example of plus object from new_plus constructor
+
+- [`predict(`*`<plus>`*`)`](https://alrobles.github.io/plus/reference/predict.plus.md)
+  :
+
+  make predictions from a "plus" object. This function makes predictions
+  from plus object. Is in essence a cross-validated glmnet model,
+  optimized with the plus algorithm. It use the optimal value chosen for
+  `lambda` for a fit.
+
+- [`predicted_coefficients_example`](https://alrobles.github.io/plus/reference/predicted_coefficients_example.md)
+  : Example of prediction from plus model for use in the consturctor
+  function new_plus
+
+- [`predicted_y_example`](https://alrobles.github.io/plus/reference/predicted_y_example.md)
+  : Example of prediction from plus model for use in the consturctor
+  function new_plus
+
+- [`print(`*`<plus>`*`)`](https://alrobles.github.io/plus/reference/print.plus.md)
+  : print a plus object
+
+- [`validate_plus()`](https://alrobles.github.io/plus/reference/validate_plus.md)
+  : validate plus_object constructed via new_plus function
+

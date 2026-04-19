@@ -79,6 +79,8 @@
 <span class="r-in"><span><span class="va">y_train</span> <span class="op">&lt;-</span> <span class="va">y</span><span class="op">[</span><span class="va">train</span><span class="op">]</span></span></span>
 <span class="r-in"><span><span class="va">y_test</span>  <span class="op">&lt;-</span> <span class="va">y</span><span class="op">[</span><span class="op">-</span><span class="va">train</span><span class="op">]</span></span></span>
 <span class="r-in"><span><span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="plus.html">plus</a></span><span class="op">(</span><span class="va">x_train</span>, <span class="va">y_train</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>no non-missing arguments to max; returning -Inf</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>no non-missing arguments to min; returning Inf</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>one multinomial or binomial class has fewer than 8  observations; dangerous ground</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>one multinomial or binomial class has fewer than 8  observations; dangerous ground</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>one multinomial or binomial class has fewer than 8  observations; dangerous ground</span>
@@ -100,15 +102,9 @@
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>one multinomial or binomial class has fewer than 8  observations; dangerous ground</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>one multinomial or binomial class has fewer than 8  observations; dangerous ground</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>one multinomial or binomial class has fewer than 8  observations; dangerous ground</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>one multinomial or binomial class has fewer than 8  observations; dangerous ground</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>one multinomial or binomial class has fewer than 8  observations; dangerous ground</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>one multinomial or binomial class has fewer than 8  observations; dangerous ground</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>one multinomial or binomial class has fewer than 8  observations; dangerous ground</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>one multinomial or binomial class has fewer than 8  observations; dangerous ground</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>one multinomial or binomial class has fewer than 8  observations; dangerous ground</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>one multinomial or binomial class has fewer than 8  observations; dangerous ground</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in lognet(x, is.sparse, y, weights, offset, alpha, nobs, nvars,     jd, vp, cl, ne, nx, nlam, flmin, ulam, thresh, isd, intr,     vnames, maxit, kopt, family, pb):</span> one multinomial or binomial class has 1 or 0 observations; not allowed</span>
 <span class="r-in"><span><span class="fu">get_auc</span><span class="op">(</span><span class="va">fit</span>, <span class="va">x_test</span>, <span class="va">y_test</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.4380032</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'fit' not found</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
@@ -120,7 +116,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer></div>
